@@ -1,0 +1,23 @@
+{% extends 'base.html' %}{% load crispy_forms_tags%}{% block content %}
+<div class="p-3 mb-2 bg-primary bg-gradient text-white" > <h1> <center> DETALLES DEL LENGUAJE </center> </h1> </div><br>
+
+<div class="card container">
+    <h5 class="card-header"><center> {{Todos_Lenguajes.Nom_Leng}}</center></h5>
+    <div class="card-body">
+        <p class="card-text">{{Todos_Lenguajes.Historia}}</p>
+        <div class="d-grid gap-2 d-md-block">
+            {% if user.is_superuser %}
+                <a href="{% url 'lenguaje_editar' Todos_Lenguajes.pk %}" class="btn btn-primary   btn-xs"> Editar </a>
+               <!-- <a href="{% url 'lenguaje_eliminar' Todos_Lenguajes.pk %}" class="btn btn-primary     btn-xs"> Eliminar </a>-->
+            {% endif %}
+            <a href="{% url 'comentarios' Todos_Lenguajes.pk  %}" class="btn btn-primary btn-xs"> Comentario </a>
+        </div>
+    </div>
+   
+    <br>
+    <a class="btn btn-outline-primary btn-xs justify-content-md-end" href="{% url 'lenguaje' %}"> Ver Todas Los Lenguajes </a>
+</div>
+
+
+
+{% endblock content %}

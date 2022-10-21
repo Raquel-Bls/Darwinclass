@@ -1,0 +1,65 @@
+<header>
+    <body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    {% load static %}
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-xxl">
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}"> Home </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'cursos' %}"> Cursos </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'lenguaje' %}"> Lenguajes </a>
+                    </li>
+
+                {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'cursos_nuevo' %}" > Crear Nuevo Curso </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'lenguaje_nuevo' %}" > Crear Nuevo Lenguaje </a>
+                        </li>   
+                    {% endif %}
+                </ul>
+                    <form class="d-flex">
+                        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{user.Nombre}}</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                    <li><a class="dropdown-item" href="{% url 'logout' %}" > Log out </a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="{% url 'password_change' %}">Cambiar Contraseña</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </form>
+                    {% else %}
+                    <form class="d-flex">
+                        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> Iniciar Sesion </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                    <li><a class="dropdown-item" href="{% url 'login' %}">   Login </a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="{% url 'signup' %}">   Registrar </a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    </body>
+    {% block content %}
+
+    {% endblock content %}
+</header>

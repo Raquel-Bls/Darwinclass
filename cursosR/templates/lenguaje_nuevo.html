@@ -1,0 +1,27 @@
+{% extends 'base.html' %}{% load crispy_forms_tags%}{% block content %}
+<div class="p-3 mb-2 bg-primary bg-gradient text-white" > <h1> <center> DETALLES DEL CURSO </center> </h1> </div><br>
+
+<form action="" method="post" class="container" >{% csrf_token %}
+    <!--{{form|crispy}}--> 
+
+   <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label for="Nom_Leng "> Nombre del Lenguaje:  </label>
+        </div>
+        <div class="col-auto">
+            <input type="text" name="Nom_Leng">
+        </div>
+    </div>
+   <br>
+   <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label for="Historia" class="form-label">Historia: </label>
+            <textarea class="textarea form-control" name="Historia" cols="40" rows="10" ></textarea>
+      </div>
+    </div>
+   <br>
+    <input class="btn btn-primary btn-xs" type="submit" value="Guardar"/>
+
+</form>
+
+{% endblock content %}

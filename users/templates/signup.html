@@ -1,0 +1,122 @@
+{% extends 'base.html' %}{% block content %}
+{% load crispy_forms_tags%}
+<div class="p-3 mb-2 bg-primary bg-gradient text-white" > <h1> <center>CURSOS </center> </h1> </div>
+
+<h2 class="container"> Registrar </h2>
+<form class="row g-3" action="" method="post" class="container ">{% csrf_token %}
+    <div >
+         <!-- {{form|crispy}}
+       <div class="mb-3 container">
+            <div class="col-auto">
+                <label for="username "> Nombre Del Usuario:  </label>
+            </div>
+            <div class="col-auto">
+                <input type="text" name="username">
+            </div>
+        </div>
+      
+       <div class="mb-3 container">
+            <div class="col-auto">
+                <label for="Nombre "> Nombre:  </label>
+            </div>
+            <div class="col-auto">
+                <input type="text" name="Nombre">
+            </div>
+        </div>
+       
+        <div class="mb-3 container">
+            <div class="col-auto">
+                <label for="Edad "> Edad:  </label>
+            </div>
+            <div class="col-auto">
+                <input type="number" name="Edad">
+            </div>
+        </div>
+      
+       <div class="mb-3 container">
+            <div class="col-auto">
+                <label for="Pais "> Pais:  </label>
+            </div>
+            <div class="col-auto">
+                <input type="text" name="Pais">
+            </div>
+        </div>
+       
+        <div class="mb-3 container">
+            <div class="col-auto">
+                <label for="email "> Direccion de correo electronico:  </label>
+            </div>
+            <div class="col-auto">
+                <input type="email" name="email">
+            </div>
+        </div>
+      
+       <div class="mb-3 container">
+            <div class="col-auto">
+                <label for="password1"> Contraseña:  </label>
+            </div>
+            <div class="col-auto">
+                <input type="password" name="password1">
+                <div id="passwordHelpBlock" class="form-text">
+                    Su contraseña debe tener entre 8 y 20 caracteres, contener letras y números, y no debe contener espacios, caracteres especiales ni emoji.
+                </div>
+            </div>
+        </div>
+       
+        <div class="mb-3 container">
+            <div class="col-auto">
+                <label for="password2"> Confirmacion de Contraseña :  </label>
+            </div>
+            <div class="col-auto">
+                <input type="password" name="password2">
+            </div>
+        </div>
+       
+        <input class=" btn btn-primary btn-xs" type="submit" value="Registrar" />
+    </div>
+</form>-->
+
+<form class=" container ">
+    <div class="mb-3 container">
+      <label for="username " class="form-label"> Nombre Del Usuario:  </label>
+      <input type="text" class="form-control" name="username" aria-describedby="userHelp">
+      <div id="userHelp" class="form-text"> Requerido al menos 20 caracteres o menos. Solo letras, dígitos y @/./+/-/_. </div>
+    </div>
+    <div class="mb-3 container">
+      <label for="Nombre" class="form-label">Nombre: </label>
+      <input type="text" class="form-control" name="Nombre">
+    </div>
+    <div class="mb-3 container">
+        <label for="Edad" class="form-label">Edad: </label>
+        <input type="number" class="form-control" name="Edad">
+    </div>
+    <div class="mb-3 container">
+        <label for="Pais" class="form-label">Pais: </label>
+        <input type="text" class="form-control" name="Pais">
+    </div>
+    <div class="mb-3 container">
+        <label for="email " class="form-label"> Direccion de correo electronico  </label>
+        <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3 container">
+        <label for="password1 " class="form-label"> Contraseña:  </label>
+        <input type="password" class="form-control" name="password1" aria-describedby="passwordHelp">
+        <div id="passwordHelp" class="form-text">
+            <ul>
+                <li>Su contraseña no puede ser demasiado similar a su otra información personal.</li>
+                <li>Su contraseña debe contener al menos 8 caracteres.</li>
+                <li>Su contraseña no puede ser una contraseña de uso común.</li>
+                <li>Su contraseña no puede ser completamente numérica.</li>    
+            </ul>
+        </div>
+      </div>
+      <div class="mb-3 container">
+        <label for="password2 " class="form-label"> Confirmación de contraseña:  </label>
+        <input type="password" class="form-control" name="password2" aria-describedby="passwordHelp">
+        <div id="passwordHelp" class="form-text">Ingrese la misma contraseña que antes, para verificación.</div>
+      </div>
+    <button type="submit" class="btn btn-primary container"> Registrar </button>
+  </form>
+
+
+{% endblock content %}

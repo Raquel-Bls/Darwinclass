@@ -1,0 +1,36 @@
+{% extends 'base.html' %}{% load static %}
+{% block content %}
+    <div class="p-3 mb-2 bg-primary bg-gradient text-white" > <h1> <center>CURSOS </center> </h1> </div>
+    
+    <div class="card  container" style="max-width: 540px;">
+        <div class="row g-0">
+            {% for cur in Todos_Cursos%}
+            <div class="col-md-4">
+                
+                <img src="https://indexdesarrollo.com/wp-content/uploads/2017/11/aprender-programacion-web.jpg" class="img-thumbnail rounded-start" alt="CURSOS">
+               
+                <div class="card-body">
+                    <a class="btn btn-outline-primary btn-xs justify-content-md-end" href="{% url 'cursos_detalle' cur.pk %}"> Ver Mas </a>
+                </div>
+            </div>
+            
+            <div class="col-md-8">
+                <div class="card-body">
+                <h5 class="card-title">{{cur.Nombre}}</h5>
+                <p class="card-text">{{cur.Descripcion}}</p>
+                <p class="card-text">{{cur.Lenguaje}}</p>
+                <blockquote class="blockquote mb-0">
+                    <p class="card-text">Creador: <small class="text-muted">{{cur.Creador}}</small></p>
+                    <footer class="blockquote-footer">Años de Experiencia:  <cite title="Source Title">{{cur.Año_Experiencia}}</cite></footer>
+                    <footer class="blockquote-footer">Fecha de Creacion:  <cite title="Source Title">{{cur.Fecha_Creacion}}</cite></footer>
+                </blockquote>
+                
+               <!-- <a class="btn btn-outline-primary btn-xs justify-content-md-end" href="{% url 'cursos_detalle' cur.pk %}"> Ver Mas </a>-->
+                </div>
+            </div>
+            {% endfor%}
+        </div>
+      </div>
+<br>
+
+{% endblock content %}

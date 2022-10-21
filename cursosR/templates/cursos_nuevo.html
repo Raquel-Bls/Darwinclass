@@ -1,0 +1,49 @@
+{% extends 'base.html' %}{% load crispy_forms_tags%}{% block content %}
+<div class="p-3 mb-2 bg-primary bg-gradient text-white" > <h1> <center> DETALLES DEL CURSO </center> </h1> </div><br>
+
+<form action="" method="post"  class="container">{% csrf_token %}
+    {{form|crispy}}
+   <!--<div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label for="Nombre "> Nombre Del Curso </label>
+        </div>
+        <div class="col-auto">
+            <input type="text" name="Nombre">
+        </div>
+    </div>
+   <br>
+   <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label for="Descripcion "> Descripcion </label>
+        </div>
+        <div class="col-auto">
+            <input type="text" name="Descripcion">
+        </div>
+    </div>
+
+    <br>
+    <div class="row g-3 align-items-center">
+         <div class="col-auto">
+             <label for="Año_Experiencia "> Años de Experiencia </label>
+         </div>
+         <div class="col-auto">
+             <input type="text" name="Año_Experiencia">
+         </div>
+     </div>
+
+     <br>
+     <div class="row g-3 align-items-center">
+          <div class="col-auto">
+              <label for="Link_Cont "> Enlace para mas información </label>
+          </div>
+          <div class="col-auto">
+              <input type="text" name="Link_Cont">
+          </div>
+      </div>
+--> 
+   <br>
+    <input class="btn btn-primary btn-xs" type="submit" value="Guardar"/>
+
+</form>
+
+{% endblock content %}

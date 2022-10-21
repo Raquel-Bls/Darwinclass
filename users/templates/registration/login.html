@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block content %} 
+<div class="p-3 mb-2 bg-primary bg-gradient text-white" > <h1> <center>CURSOS </center> </h1> </div>
+
+<form action="" method="post" class=" container ">{% csrf_token %}
+    <h6 class="form-label"> Ingrese sus datos para iniciar sesion: </h6>
+    <div class="contenedor-sm mb-3"> 
+        {{form.as_p}}
+        
+    <input class="btn btn-primary btn-xs" type="submit"> </input>
+    <a class="btn btn-primary btn-xs" href="{% url 'password_reset' %}"> Recuperar contraseña </a>
+    </div>
+      
+</form>
+<!-- <form class=" container ">{% csrf_token %}
+    <div class="mb-3 container">
+      <label for="username " class="form-label"> Nombre Del Usuario:  </label>
+      <input type="text" class="form-control" name="username" aria-describedby="userHelp">
+      <div id="userHelp" class="form-text"> Requerido al menos 20 caracteres o menos. Solo letras, dígitos y @/./+/-/_. </div>
+    </div>
+    <div class="mb-3 container">
+        <label for="password " class="form-label"> Contraseña:  </label>
+        <input type="password" class="form-control" name="password" aria-describedby="passwordHelp">
+        <div id="passwordHelp" class="form-text">
+            <ul>
+                <li>Su contraseña no puede ser demasiado similar a su otra información personal.</li>
+                <li>Su contraseña debe contener al menos 8 caracteres.</li>
+                <li>Su contraseña no puede ser una contraseña de uso común.</li>
+                <li>Su contraseña no puede ser completamente numérica.</li>    
+            </ul>
+        </div>
+    </div>
+    <input class="btn btn-primary btn-xs" type="submit"> </input>
+    <a class="btn btn-primary btn-xs" href="{% url 'password_reset' %}"> Recuperar contraseña </a>
+</form>-->
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}{% load crispy_forms_tags%}{% block content %}
+<div class="p-3 mb-2 bg-primary bg-gradient text-white" > <h1> <center> DETALLES DEL CURSO </center> </h1> </div><br>
+
+<div class="card container">
+  <div class="card-header">
+    <h5 class="card-title"> <center> {{Todos_Cursos.Nombre}}</center></h5>
+  </div>
+  <div class="card-body">
+    <h6 class="card-title">{{Todos_Cursos.Lenguaje}}</h6>
+    <p class="card-text">{{Todos_Cursos.Descripcion}}</p>
+    <footer class="blockquote-footer">Creador: <cite title="Source Title">{{Todos_Cursos.Creador}}</cite> <cite title="Source Title"> Tiene {{Todos_Cursos.Año_Experiencia}} años de experiencia</cite></footer>
+    <cite title="Source Title"> {{Todos_Cursos.Fecha_Creacion}}</cite>
+    <p><a href="{{Todos_Cursos.Link_Cont}}">Más información</a></p>
+    <br> 
+    <div class="d-grid gap-2 d-md-block">
+        {% if user.is_superuser %}
+            <a href="{% url 'cursos_editar' Todos_Cursos.pk %}" class="btn btn-primary   btn-xs"> Editar </a>
+            <a href="{% url 'cursos_eliminar' Todos_Cursos.pk %}" class="btn btn-primary     btn-xs"> Eliminar </a>
+        {% endif %}
+        <a href="{% url 'comentarios' Todos_Cursos.pk  %}" class="btn btn-primary    btn-xs"> Comentario </a>
+    </div>
+     </div>
+    <br>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            Comentarios
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">        
+            {% for comentario in Todos_Cursos.comentarios.all %}
+              <li class="list-group-item">{{comentario.NombreU}} comento: <p>{{comentario}}</p>
+              {% if user.is_superuser %}
+                <a class="btn btn-outline-primary btn-xs justify-content-md-end" href="{% url 'comentarios_eliminar' comentario.pk  %}"> Eliminar</a>
+                {% endif %}
+              </li>
+            {% endfor%}
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <a class="btn btn-outline-primary    btn-xs justify-content-md-end" href="{% url 'cursos' %}"> Ver Todas Los Cursos </a>
+ 
+    
+</div>
+
+{% endblock content %}
